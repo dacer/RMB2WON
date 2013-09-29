@@ -18,8 +18,6 @@ footer{
   background-color: #E5E5E5;
 }
 
-
-
 #rate{
   font-size: 2em;
 }
@@ -33,8 +31,10 @@ footer{
   }
 
 .to-right{
+  color: #cccccc;
   float: right;
 }
+
 @media screen and (max-width: 560px) {
   .box{
   width: 78%;
