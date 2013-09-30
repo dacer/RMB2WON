@@ -26,14 +26,18 @@ module HuiLv
     return (1/huilv)
   end
 
-  def self.getLastestUnionPayHuilv(timeStr=getLstestUnionPayDate)
+  def self.getLastestUnionPayHuilvAndDate(timeStr=getLstestUnionPayDate)
     rateHash = getRateFromCSV
     rate = rateHash[timeStr]
-    return rate if !rate.nil?
-    rate = getUnionpay(timeStr)
-    # return getLastestUnionPayHuilv(time - 86400) if day.nil?
-    saveRateToCSV(rateHash.update(timeStr => rate))
-    rate
+    if rate.nil?
+      rate = getUnionpay(timeStr)
+      if rate.nil? #today rate not exist 
+        timeStr = simpleT(time - 86400)
+        rate = getLastestUnionPayHuilvAndDate(timeStr) 
+      end
+      saveRateToCSV(rateHash.update(timeStr => rate))
+    end
+    return {'timeStr' => timeStr, 'rate' => rate}
   end
 
   def self.getLstestUnionPayDate(time=Time.now.utc)
