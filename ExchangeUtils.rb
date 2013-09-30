@@ -32,12 +32,12 @@ module HuiLv
     if rate.nil?
       rate = getUnionpay(timeStr)
       if rate.nil? #today rate not exist 
-        timeStr = simpleT(time - 86400)
-        rate = getLastestUnionPayHuilvAndDate(timeStr) 
+        timeStr = simpleT(Time.parse(timeStr) - 86400)
+        rate = getLastestUnionPayHuilvAndDate(timeStr)[:rate] 
       end
       saveRateToCSV(rateHash.update(timeStr => rate))
     end
-    return {'timeStr' => timeStr, 'rate' => rate}
+    return {:timeStr => timeStr, :rate => rate}
   end
 
   def self.getLstestUnionPayDate(time=Time.now.utc)
