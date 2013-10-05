@@ -1,3 +1,4 @@
+# encoding: UTF-8
 require 'csv'
 require 'uri'
 require 'net/http'
@@ -39,6 +40,12 @@ module HuiLv
     end
     return {:timeStr => timeStr, :rate => rate}
   end
+
+  def self.getShouldRunJS()
+    time=Time.now
+    return 'showToast("今天是周末汇率不更新");' if time.is_weekend?
+  end
+
 
   def self.getLstestUnionPayDate(time=Time.now.utc)
     return simpleT(time) if !time.is_weekend?

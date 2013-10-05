@@ -20,10 +20,10 @@
     <div class="box">
       <div class="to-right">中韩汇率</div>
       <div id="rate">
-      <%= format("%.3f",HuiLv::getLastestUnionPayHuilvAndDate[:rate]) %>
+      <%= format("%.3f",HuiLv.getLastestUnionPayHuilvAndDate[:rate]) %>
       </div>
       <div id="date">
-      &nbsp;<%= HuiLv::getLastestUnionPayHuilvAndDate[:timeStr] %>
+      &nbsp;<%= HuiLv.getLastestUnionPayHuilvAndDate[:timeStr] %>
       </div>
     </div>
 
@@ -42,5 +42,9 @@
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script type="text/javascript" src="/js/index.js"></script>
+
+  <script>
+    <%= HuiLv.getShouldRunJS %>
+  </script>
 </body>
 </html>
