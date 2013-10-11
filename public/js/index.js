@@ -2,10 +2,50 @@
     // console.log(id);
 var input = [];
 var currencyRate;
+var realTimeRate;
+var unionPayRate;
 var supportTouch = ('ontouchstart' in document.documentElement);
+var isRMB2WON = true;
+var useRealTimeRate = false;
 
 initListener();
+//rate
+$.ajax({
+  url: "huilv",
+  context: document.body
+}).done(function(data) {
+  $("#rate").html(data);
+  currencyRate = parseFloat(data);
+  unionPayRate = currencyRate;
+});
 
+$.ajax({
+  url: "huilvdate",
+  context: document.body
+}).done(function(data) {
+  $("#date").html("&nbsp;"+data);
+});
+
+// real time rate
+$.ajax({
+  url: "huilvrealtime",
+  context: document.body
+}).done(function(data) {
+  var array = data.split(',');
+  $("#rate-real-time").html(array[1]);
+  realTimeRate = array[1];
+  //delete the " symbol
+  var realTime = array[3];
+  realTime = realTime.substring(1, realTime.length-1);
+  var realDate = array[2];
+  realDate = realDate.substring(1, realDate.length-1);
+  realDate = "&nbsp;"+realTime+" "+realDate+"(米国时间)";
+  $("#date-real-time").html(realDate);
+});
+
+
+
+//Conventer
 function initListener(){
   for (var i = 11; i >= 0; i--) {
     var id = "#num-"+i;
@@ -15,19 +55,24 @@ function initListener(){
       $(id).on("click", onClickMe(i));
     }
   };
-  $("#btn-back").on("click", backAnimation());
 
   $("#to-conversion").click(function() {
     $('html, body').animate({
         scrollTop: $("#conventer-div").offset().top
-    }, 800);
+    }, 600);
   });
 
   $("#btn-back").click(function() {
     $('html, body').animate({
         scrollTop: $("#show-div").offset().top
-    }, 800);
+    }, 600);
   });
+
+  $("#rate-standard").click(function() {
+    useRealTimeRate = !useRealTimeRate;
+    refreshInput();
+  });
+
 }
 
 function onTouchStart(num){
@@ -55,7 +100,7 @@ function onClickOrigin(num){
   if(num === 10){
     deleteInput();
   }else if (num === 11) {
-
+    changeCurrencyDirection();
   }else{
     addInput(num);
   };
@@ -69,7 +114,27 @@ function deleteInput(){
   refreshInput();
 }
 
+function changeCurrencyDirection(){
+  isRMB2WON = !isRMB2WON;
+  if(isRMB2WON){
+    $("#first-symbol").html("¥");
+    $("#second-symbol").html("₩");
+  }else{
+    $("#first-symbol").html("₩");
+    $("#second-symbol").html("¥");
+  }
+  refreshInput();
+}
+
 function refreshInput(){
+  if(useRealTimeRate){
+    $("#rate-standard").text("基准：实时汇率");
+    currencyRate = realTimeRate;
+  }else{
+    $("#rate-standard").text("基准：银联汇率");
+    currencyRate = unionPayRate;
+  }
+  
   var resultInput = "";
   $.each(input, function( index, value ) {
     resultInput += value;
@@ -77,19 +142,13 @@ function refreshInput(){
   $("#first-rate").text(resultInput);
 
   var floatResult =  parseFloat(resultInput);
-
-  $("#second-rate").text(floatResult*2);
-}
-
-function backAnimation(){
-  return function(){
-    $('#main-div').animate({"marginTop":"250px"}, 500, function() {
-      $('#main-div').animate({"marginTop":"-880px"},888,function(){
-        // location.reload();
-        alert("Enter!");
-      });
-    });
+  if(isRMB2WON){
+    $("#second-rate").text((floatResult*currencyRate).toFixed(0));
+  }else{
+    $("#second-rate").text((floatResult/currencyRate).toFixed(2));
   }
+
+
 }
 
 function loadingAnimate(){

@@ -17,13 +17,24 @@
   <div class="main">
     <div id="show-div">
       <div class="step-2"></div>
+
       <div class="box">
-        <div class="to-right">中韩汇率</div>
+        <div class="to-right">实时汇率</div>
+        <div id="rate-real-time">
+        读取中..
+        </div>
+        <div id="date-real-time">
+        &nbsp;读取中..
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="to-right">银联汇率</div>
         <div id="rate">
-        <%= format("%.3f",HuiLv.getLastestUnionPayHuilvAndDate[:rate]) %>
+        读取中..
         </div>
         <div id="date">
-        &nbsp;<%= HuiLv.getLastestUnionPayHuilvAndDate[:timeStr] %>
+        &nbsp;读取中..
         </div>
       </div>
 
@@ -40,9 +51,10 @@
 
         <img src="img/back2.png" id="btn-back">
 
+        <div class="to-right" id="rate-standard">基准：银联汇率</div>
         <div class="rate-row">
-          <div>¥&nbsp;&nbsp;<span class="rate" id="first-rate">等待输入</span></div>
-          <div>₩&nbsp;<span class="rate" id="second-rate">0</span></div>
+          <div><span id="first-symbol">¥</span>&nbsp;&nbsp;<span class="rate" id="first-rate">等待输入</span></div>
+          <div><span id="second-symbol">₩</span>&nbsp;<span class="rate" id="second-rate">0</span></div>
         </div>
 
         <div class="num-row">

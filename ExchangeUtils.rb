@@ -2,6 +2,7 @@
 require 'csv'
 require 'uri'
 require 'net/http'
+require 'open-uri'
 
 class Time
   def is_weekend?
@@ -10,6 +11,19 @@ class Time
 end
 
 module HuiLv
+
+  def self.getRealTimeRate()
+    file = open('http://download.finance.yahoo.com/d/quotes.csv?s=CNYKRW=X&f=sl1d1t1c1ohgv&e=.csv')
+    contents = file.read
+  end
+
+  def self.getLastestRate()
+    format("%.3f",getLastestUnionPayHuilvAndDate[:rate])
+  end
+
+  def self.getLastestDate()
+    getLastestUnionPayHuilvAndDate[:timeStr]
+  end
 
   def self.getUnionpay(dateStr)
     postData = Net::HTTP.post_form(URI.parse('http://en.unionpay.com/front.do'), 
