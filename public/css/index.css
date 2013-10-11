@@ -24,6 +24,9 @@ footer{
   font-size: 2em;
 }
 
+#date-real-time{
+  color: rgb(252, 252, 252);
+}
 .box{
   background-color: white;
   padding: 30px;

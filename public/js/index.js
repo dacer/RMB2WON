@@ -45,7 +45,7 @@ $.ajax({
   realTime = realTime.substring(1, realTime.length-1);
   var realDate = array[2];
   realDate = realDate.substring(1, realDate.length-1);
-  realDate = "&nbsp;"+realTime+" "+realDate+"(米国时间)";
+  realDate = "&nbsp;"+realTime+" "+realDate+"(未知时区..)";
   $("#date-real-time").html(realDate);
 });
 
