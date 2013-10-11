@@ -14,26 +14,58 @@
   <link href="/css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <div id="main">
-    <div class="step-2"></div>
-
-    <div class="box">
-      <div class="to-right">中韩汇率</div>
-      <div id="rate">
-      <%= format("%.3f",HuiLv.getLastestUnionPayHuilvAndDate[:rate]) %>
+  <div class="main">
+    <div id="show-div">
+      <div class="step-2"></div>
+      <div class="box">
+        <div class="to-right">中韩汇率</div>
+        <div id="rate">
+        <%= format("%.3f",HuiLv.getLastestUnionPayHuilvAndDate[:rate]) %>
+        </div>
+        <div id="date">
+        &nbsp;<%= HuiLv.getLastestUnionPayHuilvAndDate[:timeStr] %>
+        </div>
       </div>
-      <div id="date">
-      &nbsp;<%= HuiLv.getLastestUnionPayHuilvAndDate[:timeStr] %>
+
+      <div class="box">
+        <img src="img/cal.png" id="to-conversion">
       </div>
     </div>
+  </div>
 
-    <div class="box">
-      <div class="to-right">Conversion</div>
-      <input type="text" maxlength="40" name="q" id="q" value="">
-      <br>
-      <input type="text" maxlength="40" name="q" id="q" value="">
+<!-- Conventer -->
+  <div class="main" id="conventer-bg">
+    <div id="conventer-div">
+        <div id="statusbar-40"></div>
+
+        <img src="img/back2.png" id="btn-back">
+
+        <div class="rate-row">
+          <div>¥&nbsp;&nbsp;<span class="rate" id="first-rate">等待输入</span></div>
+          <div>₩&nbsp;<span class="rate" id="second-rate">0</span></div>
+        </div>
+
+        <div class="num-row">
+          <button class="num" id="num-1">1</button>
+          <button class="num" id="num-2">2</button>
+          <button class="num" id="num-3">3</button>
+        </div>
+        <div class="num-row">
+          <button class="num" id="num-4">4</button>
+          <button class="num" id="num-5">5</button>
+          <button class="num" id="num-6">6</button>
+        </div>
+        <div class="num-row">
+          <button class="num" id="num-7">7</button>
+          <button class="num" id="num-8">8</button>
+          <button class="num" id="num-9">9</button>
+        </div>
+        <div class="num-row">
+          <button class="num" id="num-10">←</button>
+          <button class="num" id="num-0">0</button>
+          <button class="num" id ="num-11">⇌</button>
+        </div>
     </div>
-    
   </div>
 
   <footer>
