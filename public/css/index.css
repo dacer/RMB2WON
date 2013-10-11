@@ -17,6 +17,7 @@ footer{
 .main{
   background-color: #E5E5E5;
   height: 100%;
+  min-height: 508px;
 }
 
 #rate,#rate-real-time{

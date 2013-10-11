@@ -59,13 +59,13 @@ function initListener(){
   $("#to-conversion").click(function() {
     $('html, body').animate({
         scrollTop: $("#conventer-div").offset().top
-    }, 600);
+    }, 500);
   });
 
   $("#btn-back").click(function() {
     $('html, body').animate({
         scrollTop: $("#show-div").offset().top
-    }, 600);
+    }, 500);
   });
 
   $("#rate-standard").click(function() {
