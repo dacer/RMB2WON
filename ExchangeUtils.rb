@@ -55,10 +55,10 @@ module HuiLv
     return {:timeStr => timeStr, :rate => rate}
   end
 
-  def self.getShouldRunJS()
-    time=Time.now
-    return 'showToast("今天是周末汇率不更新");' if time.is_weekend?
-  end
+  # def self.getShouldRunJS()
+  #   time=Time.now
+  #   return 'showToast("今天是周末汇率不更新");' if time.is_weekend?
+  # end
 
 
   def self.getLstestUnionPayDate(time=Time.now.utc)
