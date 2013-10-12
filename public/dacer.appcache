@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+# Oct 13.
+
+CACHE:
+css/index.css
+img/bg.jpg
+img/cal.png
+img/back2.png
+js/index.js
+js/jquery-1.10.2.min.js
+js/jquery-1.10.2.min.map
+
+NETWORK: 
+*
