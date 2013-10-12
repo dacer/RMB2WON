@@ -10,7 +10,8 @@ var useRealTimeRate = false;
 
 initListener();
 //if is weekend ,show the toast
-var day = Date.now();
+var day = new Date();
+day = day.getDay();
 var isWeekend = (day == 6) || (day == 0);
 if(isWeekend){
   showToast("今天是周末汇率不更新");
