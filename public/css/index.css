@@ -44,6 +44,8 @@ footer{
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 75px;
+    height: 75px;
 }
 
 @media screen and (max-width: 560px) {
