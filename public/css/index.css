@@ -1,7 +1,6 @@
-@font-face { font-family: Roboto; src: url('../font/Roboto-Thin.ttf'); } 
-
+@import url(http://fonts.googleapis.com/css?family=Roboto:100);
 body{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;font-weight:100;
   margin: 0px;
 }
 footer{ 
@@ -115,7 +114,7 @@ footer a{
 .num {
   font-size: 25px;
   color: #ffffff;
-  font-family: 'Roboto',sans-serif;
+  font-family: 'Roboto',sans-serif;font-weight:100;
   margin: 6px 12px;
   border: 1px solid #ffffff;
   padding: 10px 19px;
