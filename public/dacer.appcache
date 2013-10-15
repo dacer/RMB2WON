@@ -1,8 +1,9 @@
 CACHE MANIFEST
 
-# Oct 155.
+# Oct 16.
 
 CACHE:
+font/Roboto-Thin.ttf
 css/index.css
 img/bg.jpg
 img/cal.png

@@ -1,6 +1,7 @@
+@font-face { font-family: Roboto; src: url('../font/Roboto-Thin.ttf'); } 
+
 body{
   font-family: 'Roboto', sans-serif;
-  font-weight: 100; 
   margin: 0px;
 }
 footer{ 
@@ -9,6 +10,10 @@ footer{
   border-top: solid 1px #ddd;
   text-align: center;
   color: #666666;
+}
+footer a{
+  color: #666666;
+  text-decoration: none;
 }
 
 .step-2{
@@ -109,7 +114,7 @@ footer{
 .num {
   font-size: 25px;
   color: #ffffff;
-  font-family: 'Roboto', Arial, sans-serif; font-weight: 100; 
+  font-family: 'Roboto',sans-serif;
   margin: 6px 12px;
   border: 1px solid #ffffff;
   padding: 10px 19px;
