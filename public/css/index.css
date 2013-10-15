@@ -74,7 +74,8 @@ footer a{
 }
 
 #rate-standard{
-  
+  padding-left: 8px;
+  color: white;
 }
 @media screen and (min-width: 560px) {
   #conventer-div {
@@ -88,8 +89,8 @@ footer a{
   }
 }
 
-#statusbar-40 {
-  height: 40px;
+#statusbar-20 {
+  height: 20px;
 }
 
 .rate-row {
